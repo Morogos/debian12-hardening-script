@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# https://privacy.sexy — v0.13.6 — Sun, 08 Sep 2024 01:13:54 GMT
 if [ "$EUID" -ne 0 ]; then
   script_path=$([[ "$0" = /* ]] && echo "$0" || echo "$PWD/${0#./}")
   sudo "$script_path" || (
@@ -4325,7 +4324,7 @@ for i in /proc/sys/net/ipv4/conf/*/bootp_relay; do echo 0 > "$i"; done
 "$IPTABLES" -t nat -Z
 "$IPTABLES" -t mangle -Z
 
-# Completely disable IPv6 if ip6tables is available
+# Completely disable IPv6 if ip6tables is available 
 if test -x "$IP6TABLES"; then
     "$IP6TABLES" -P INPUT DROP 2>/dev/null
     "$IP6TABLES" -P FORWARD DROP 2>/dev/null
@@ -4647,6 +4646,6 @@ msg_ok "Configuration complete"
 
 script_init "$@"
 
-echo 'Your privacy and security is now hardened 🎉💪'
+echo 'Your privacy and security is now hardened'
 echo 'Press any key to exit.'
 read -n 1 -s
